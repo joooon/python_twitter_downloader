@@ -1,0 +1,4 @@
+mysqlclient==2.1.0
+PyYAML==6.0
+tenacity==8.0.1
+tweepy==4.1.0

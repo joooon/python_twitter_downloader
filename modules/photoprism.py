@@ -38,9 +38,9 @@ def label_known_artists(connection: Connection, configuration: ConfigParser):
     Scan the tag map file and update the pictures in PhotoPrism with the specified labels.
     The tag map file consists in a YAML dictionary with Twitter username as key and a list of labels to associate with
     their picture as value. For example:
-        s_thegardener:
-          - comic
-          - fandom-toh
+        nasahqphoto:
+          - photo
+          - topic-space
 
     Note that the label name may not reflect its slug (ie. 'fandom:toh' becomes 'fandom-toh' in the database). Search
     for the label in PhotoPrism, its slug will be shown in the search bar.
@@ -144,9 +144,9 @@ def _create_tagmap_file(filepath: str):
     comment = (
         '# Specify the username and the tags you want applied to their media.\n'
         '# Example:\n'
-        '#   s_thegardener:\n'
-        '#     - comic\n'
-        '#     - fandom-toh'
+        '#   nasahqphoto:\n'
+        '#     - photo\n'
+        '#     - topic-space'
     )
     log.info(f'Creating new tag map file {filepath}')
     try:

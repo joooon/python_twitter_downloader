@@ -13,13 +13,13 @@ def groupdict_from_filename(filename: str) -> Dict[str, str]:
     """
     Parse the given filename and return a dictionary with the extracted groups if it matches FILENAME_REGEX.
     Example return value:
-      {'account': 's_thegardener',
-       'date': '2022-02-07',
-       'id': '1490761491066552320',
-       'media_count': '3',
+      {'account': 'koirakoirana',
+       'date': '2022-08-09',  # ISO format YYYY-MM-DD
+       'id': '1557022684373983234',
+       'media_count': '1',
        'extension': 'jpg'}
 
-    :param filename: filename to parse, ie. 's_thegardener_2022-02-07_1490761491066552320_3.jpg'
+    :param filename: filename to parse, ie. 'koirakoirana_2022-08-09_1557022684373983234_1.jpg'
     :return: account name
     :raise ValueError: if the filename failed to match the regular expression
     """

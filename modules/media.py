@@ -66,7 +66,7 @@ def _build_filename(tweet: tweepy.models.Status, media_count: int, extension: st
     The file name is formatted as follows:
         {user}_{date}_{ID}_{file_number}.{extension}
     Example:
-        kittenwithaknif_2021-10-23_1452222192901570563_1.jpg
+        koirakoirana_2022-08-09_1557022684373983234_1.jpg
 
     :param tweet: tweet to process
     :param media_count: media file number

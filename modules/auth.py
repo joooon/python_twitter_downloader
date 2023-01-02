@@ -11,6 +11,6 @@ def get_authenticated_api(configuration: ConfigParser) -> tweepy.API:
     :return: authenticated tweepy API object.
     """
     auth_pair, token_pair = get_auth_pairs(configuration)
-    auth = tweepy.OAuthHandler(*auth_pair)
+    auth = tweepy.OAuth1UserHandler(*auth_pair)
     auth.set_access_token(*token_pair)
     return tweepy.API(auth)

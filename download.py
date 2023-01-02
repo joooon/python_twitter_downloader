@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 """
-Kelvin's twitter downloader.
+Twitter downloader.
 
 Connect to twitter, check the liked tweets of the authenticated user and download all pictures found.
 """

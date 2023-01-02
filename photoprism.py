@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 """
-Kelvin's PhotoPrism utility
+PhotoPrism utility
 
 Connect to the PhotoPrism database and DO THINGS!!!!
 """

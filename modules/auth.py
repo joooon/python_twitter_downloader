@@ -1,5 +1,7 @@
-import tweepy
 from configparser import ConfigParser
+
+import tweepy  # type: ignore
+
 from modules.config import get_auth_pairs
 
 

@@ -25,6 +25,6 @@ def groupdict_from_filename(filename: str) -> Dict[str, str]:
     """
     matched = COMPILED_FILENAME_REGEX.match(filename)
     if not matched:
-        raise ValueError(f'Failed to parse file {filename}')
+        raise ValueError(f"Failed to parse file {filename}")
 
     return matched.groupdict()

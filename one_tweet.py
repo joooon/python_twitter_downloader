@@ -17,6 +17,7 @@ logging.basicConfig(
 def parse_args():
     parser = argparse.ArgumentParser(description='Download media of the specified Twitter status')
     parser.add_argument('--debug', action='store_true', help='set logging to DEBUG level')
+    parser.add_argument('--force', action='store_true', help='do not check if media files are already on disk')
     parser.add_argument('status_id', metavar='TWITTER_ID', type=str, help='Twitter status ID')
     return parser.parse_args()
 
@@ -33,7 +34,7 @@ def main(args: argparse.Namespace):
 
     tweet = tweets_list[0]
     log.debug(f'Processing tweet https://twitter.com/i/web/status/{tweet.id_str}')
-    downloaded_media_count, media_found = media.download_media(tweet, configuration)
+    downloaded_media_count, media_found = media.download_media(tweet, configuration, args.force)
     log.info(f'Downloaded {downloaded_media_count} media files.')
 
 

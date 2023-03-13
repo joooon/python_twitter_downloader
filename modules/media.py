@@ -22,12 +22,17 @@ class DownloadFailed(Exception):
     ...
 
 
-def download_media(tweet: tweepy.models.Status, configuration: configparser.ConfigParser) -> Tuple[int, bool]:
+def download_media(
+        tweet: tweepy.models.Status,
+        configuration: configparser.ConfigParser,
+        force_download: bool = False
+) -> Tuple[int, bool]:
     """
     Given a tweet, download all media it contains.
 
     :param tweet: Tweet to download
     :param configuration: initialized ConfigParser object
+    :param force_download: do not check if the files to download already exist on disk
     :return: tuple with number of media files downloaded and bool value, False if no media was found in the tweet
     """
     tweet_media_count = 0
@@ -40,9 +45,10 @@ def download_media(tweet: tweepy.models.Status, configuration: configparser.Conf
         dst_filename = _build_filename(tweet, index + 1, extension)
         dst_filepath, extra_filepath = _build_filepath(configuration, dst_filename, tweet)
 
-        # If the file is already on the disk, abort download and return True
-        if (_check_file_already_on_disk(extra_filepath)
-                or _check_file_already_on_disk(dst_filepath)):
+        # If the file is already on disk, and download is not forced, abort download and return True
+        if force_download:
+            log.debug('Will not check disk for existing files')
+        elif _check_file_already_on_disk(extra_filepath) or _check_file_already_on_disk(dst_filepath):
             log.debug('Assuming all media in this tweet is already on disk')
             return 0, True
 

@@ -21,6 +21,7 @@ def parse_args():
     parser.add_argument('--debug', action='store_true', help='set logging to DEBUG level')
     parser.add_argument('--organize', action='store_true', help='create and manage subdirectories')
     parser.add_argument('--disable-blacklist', action='store_true', help='disable filtering of blacklisted tweets')
+    parser.add_argument('--force', action='store_true', help='do not check if media files are already on disk')
     return parser.parse_args()
 
 
@@ -44,7 +45,7 @@ def main(args: argparse.Namespace):
     # Process tweets one by one
     for tweet in tweets_list:
         log.debug(f'Processing tweet https://twitter.com/i/web/status/{tweet.id_str}')
-        tweet_media_count, media_found = media.download_media(tweet, configuration)
+        tweet_media_count, media_found = media.download_media(tweet, configuration, args.force)
         if tweet_media_count > 0:
             downloaded_tweets += 1
             downloaded_media_count += tweet_media_count

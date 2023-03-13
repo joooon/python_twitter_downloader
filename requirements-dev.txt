@@ -1,0 +1,8 @@
+-r requirements.txt
+
+black==22.3.0
+isort==5.10.1
+mypy==0.931
+types-PyYAML==6.0.12.8
+types-mysqlclient==2.1.5.6
+types-requests==2.28.11.15
